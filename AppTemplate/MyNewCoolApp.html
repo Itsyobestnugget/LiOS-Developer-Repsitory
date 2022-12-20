@@ -1,0 +1,26 @@
+<script ::processExec>
+    main_init = () => {
+        process.name = 'My New Cool App';//replace this with what will show at the top window
+        process.icon = 'system.icons.executable';//dont worry about this this will later be changed during implementation process to use your icon
+        process.max_window_stack = 1;//how many windows can be open at once (default 1)
+    }
+    onNewProcess = () => {
+        System.screen.openWindow({
+            process: process,
+            title: 'MyNewApp',//this is what will show in task manager replace it with what you want
+            source: [
+                {
+                    type: 'html',
+                    src: new WindowTemplate().content
+                }
+            ],
+            systemTheme: true //True = Use systems theme, False = dont use system theme and use custom theme
+        })
+    }
+</script>
+
+<p>Wow look at this cool base app</p><br>
+<p>i can show images</p><br>
+<img src="grass.png">
+<h1>I CAN USE HEADERS</h1>
+<button>and do so much more!</button>
